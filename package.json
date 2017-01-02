@@ -3,10 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
-    "react-scripts": "0.8.4"
+    "react-scripts": "0.8.4",
+    "@kadira/storybook": "^2.21.0"
   },
   "dependencies": {
     "gsap": "^1.19.0",
+    "lost": "^8.0.0",
     "mojs": "^0.2.0",
     "mojs-curve-editor": "^1.4.6",
     "mojs-player": "^0.43.16",
@@ -17,6 +19,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "storybook": "start-storybook -p 9009 -s public",
+    "build-storybook": "build-storybook -s public"
   }
 }
