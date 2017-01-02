@@ -1,0 +1,71 @@
+@import './variables.css';
+
+.card {
+  position: relative;
+  overflow: hidden;
+
+  background-color: lightgray;
+  
+  box-shadow: rgba(0, 0, 0, 0.2) 0 16px 32px 0;
+  margin: 2rem *;
+  
+  background-color: linear-gradient(to left, #1D1C20 , #27262C); 
+}
+
+.card--collection {
+  
+  margin: 0;
+
+  @media ($sm) { height: 15vh; }
+  @media ($md) { height: 30vh; }
+  @media ($lg) { height: 35vh; }
+  @media ($xl) { height: 30vh; }
+}
+
+
+.card__title {
+  position: relative;
+  z-index: 1;
+  padding: 1rem;
+  opacity: 0;
+  color: #444052;
+}
+
+.card__title--overlay {
+  position: absolute;
+  bottom: 0;
+  color: white;
+}
+
+
+
+.card__image {
+/*  position: absolute;
+  left: 0;
+  top: 0;
+*/
+  width: 100%;
+  height: 100%;
+
+  /* 
+    Like background-size, but for image 
+    https://css-tricks.com/almanac/properties/o/object-fit
+
+    Using this, vs background images so we can add responsive images 
+    via <picture> element / srcset next.
+    TODO: Doesnt work in IE, need fallback 
+  */
+  object-fit: cover;
+}
+
+.card__button:hover {
+  opacity: 0.85;
+}
+
+.icon--arrow-right {
+  color: #918F8F;
+}
+
+.element--three .card {
+  opacity: 1;
+}

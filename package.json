@@ -53,6 +53,8 @@
     "mojs": "^0.2.0",
     "mojs-curve-editor": "^1.4.6",
     "mojs-player": "^0.43.16",
+    "postcss-import": "^9.0.0",
+    "postcss-simple-vars": "^3.0.0",
     "react": "^15.4.1",
     "react-dom": "^15.4.1"
   },

@@ -1,3 +1,9 @@
+// changes mostly copied from:
+// https://github.com/karlhorky/create-react-app/commit/b260b4630b2f710ad7de9757509fb430e9ec3747
+var atImport = require('postcss-import');
+var simpleVars = require('postcss-simple-vars');
+var lost = require('lost');
+
 var autoprefixer = require('autoprefixer');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -7,7 +13,6 @@ var InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 var url = require('url');
 var paths = require('./paths');
 var getClientEnvironment = require('./env');
-
 
 
 function ensureSlash(path, needsSlash) {
@@ -166,9 +171,11 @@ module.exports = {
     ]
   },
   
-  // We use PostCSS for autoprefixing only.
   postcss: function() {
     return [
+      atImport,
+      simpleVars,
+      lost,
       autoprefixer({
         browsers: [
           '>1%',

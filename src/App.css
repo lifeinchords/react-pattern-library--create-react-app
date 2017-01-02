@@ -1,5 +1,7 @@
+@import './variables.css';
+
 .App {
-  text-align: center;
+  lost-flex-container: row;
 }
 
 .App-logo {
@@ -22,3 +24,33 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+
+
+/*
+
+.test {
+
+  @media ($sm) { 
+    lost-column: 4/4; 
+  }
+ 
+  @media ($md) { 
+    lost-column: 4/6; 
+    lost-offset: -1/6; 
+  }
+ 
+  @media ($lg) { 
+    lost-column: 12/20; 
+    lost-offset: -4/20; 
+  }
+ 
+  @media ($xl) { 
+    lost-column: 14/32; 
+    lost-offset: -9/32; 
+  }
+
+  min-height: 30rem;  
+  
+}
+

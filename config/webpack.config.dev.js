@@ -1,3 +1,9 @@
+// changes mostly copied from:
+// https://github.com/karlhorky/create-react-app/commit/b260b4630b2f710ad7de9757509fb430e9ec3747
+var atImport = require('postcss-import');
+var simpleVars = require('postcss-simple-vars');
+var lost = require('lost');
+
 var autoprefixer = require('autoprefixer');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -132,14 +138,14 @@ module.exports = {
           cacheDirectory: true
         }
       },
-      // "postcss" loader applies autoprefixer to our CSS.
+      // "postcss" loader applies  postcss-import, postcss-simple-vars, lost, and autoprefixer to our CSS.
       // "css" loader resolves paths in CSS and adds assets as dependencies.
       // "style" loader turns CSS into JS modules that inject <style> tags.
       // In production, we use a plugin to extract that CSS to a file, but
       // in development "style" loader enables hot editing of CSS.
       {
         test: /\.css$/,
-        loader: 'style!css?importLoaders=1!postcss'
+        loader: 'style!css?modulesimportLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss'
       },
       // JSON is not enabled by default in Webpack but both Node and Browserify
       // allow it implicitly so we also enable it.
@@ -158,9 +164,11 @@ module.exports = {
     ]
   },
   
-  // We use PostCSS for autoprefixing only.
   postcss: function() {
     return [
+      atImport,
+      simpleVars,
+      lost,
       autoprefixer({
         browsers: [
           '>1%',
